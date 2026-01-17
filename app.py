@@ -221,6 +221,7 @@ def run_script(filename):
     # Mapping des scripts vers leurs interfaces spécifiques
     script_interfaces = {
         'discover.py': 'discover',
+        'discoverwifi.py': 'discoverwifi',
         'sherlock_scan.py': 'sherlock'
     }
     if safe_name in script_interfaces:
@@ -259,6 +260,35 @@ def discover():
 
     # Pour GET, on affiche juste l'interface vide
     return render_template('discover.html', output="", mode='partial', ssid="")
+
+
+@app.route('/discoverwifi', methods=['GET', 'POST'])
+def discoverwifi():
+    if request.method == 'POST':
+        interface = request.form.get('interface', '').strip()
+        method = request.form.get('method', 'auto').strip()
+        open_only = 'open_only' in request.form
+        limit = request.form.get('limit', '').strip()
+
+        cmd = [PYTHON_EXE, '-u', os.path.join(SCRIPTS_DIR, 'discoverwifi.py')]
+        if interface:
+            cmd.extend(['--interface', interface])
+        if method and method != 'auto':
+            cmd.extend(['--method', method])
+        if open_only:
+            cmd.append('--open-only')
+        if limit:
+            cmd.extend(['--limit', limit])
+
+        return Response(stream_with_context(stream_command(cmd, cwd=BASE_DIR)), mimetype='text/html')
+
+    return render_template(
+        'discoverwifi.html',
+        output='',
+        interface='',
+        method='auto',
+        open_only=False
+    )
 
 
 @app.route('/sherlock', methods=['GET', 'POST'])

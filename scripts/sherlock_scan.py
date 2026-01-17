@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 DB_PATH = os.path.join(BASE_DIR, 'data.db')
 
-SCRIPT_PATH = os.path.join(BASE_DIR, 'integration\sherlock', 'sherlock_project', 'sherlock.py')
+SCRIPT_PATH = os.path.join(BASE_DIR, 'sherlock', 'sherlock_project', 'sherlock.py')
 SCRIPT_NOM = "Sherlock"
 SCRIPT_DESC = "Recherche de profils sur les réseaux sociaux"
 PYTHON_EXE = sys.executable
@@ -128,6 +128,6 @@ def run_sherlock(username):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: py sherlock_scan.py <username>")
+        print("Usage: python sherlock_scan.py <username>")
         sys.exit(1)
     run_sherlock(sys.argv[1])

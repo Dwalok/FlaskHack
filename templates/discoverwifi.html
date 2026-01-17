@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scan Wi-Fi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .wifi-container {
+            background: var(--surface);
+            border-radius: 1.2em;
+            padding: 2em;
+            margin: 2em auto;
+            max-width: 860px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+            animation: fadeUp 0.6s ease both;
+        }
+        .wifi-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.8em;
+            margin-bottom: 1em;
+        }
+        .wifi-form input[type=text],
+        .wifi-form select {
+            padding: 0.7em 0.9em;
+            font-size: 1em;
+            border-radius: 0.6em;
+            border: 1px solid rgba(15, 23, 42, 0.1);
+            background: rgba(255, 255, 255, 0.85);
+        }
+        .wifi-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8em;
+            align-items: center;
+        }
+        .wifi-options label {
+            color: var(--muted);
+            font-size: 0.95em;
+            display: flex;
+            gap: 0.4em;
+            align-items: center;
+            padding: 0.4em 0.8em;
+            border-radius: 999px;
+            background: rgba(14, 165, 164, 0.08);
+        }
+        .wifi-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 0.6em;
+        }
+        .wifi-actions button {
+            padding: 0.7em 1.2em;
+            font-size: 0.95em;
+            border: none;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 0.6em;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .wifi-actions button:hover {
+            background: var(--accent-strong);
+            transform: translateY(-1px);
+        }
+        @media (max-width: 720px) {
+            .wifi-container {
+                margin: 1.5em 1em;
+                padding: 1.5em;
+            }
+            .wifi-actions {
+                justify-content: stretch;
+            }
+            .wifi-actions button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-menu">
+        <button class="card menu-toggle" onclick="toggleNavbar()">Menu</button>
+        <div class="navbar">
+            <button onclick="window.location.href='/'">Dashboard</button>
+            <button onclick="window.location.href='/outilshacking'">Outils hacking</button>
+            <button onclick="window.location.href='/discover'">Informations réseaux</button>
+            <button>Upgrade</button>
+            <button onclick="window.location.href='https://samuelvanderhoeven.fr'">En savoir plus</button>
+        </div>
+    </div>
+
+    <div class="wifi-container">
+        <form class="wifi-form" method="post" id="wifi-form" action="/discoverwifi">
+            <input type="text" name="interface" placeholder="Interface Wi-Fi (ex: wlan0)" value="{{ interface or '' }}">
+            <select name="method">
+                <option value="auto" {% if method == 'auto' %}selected{% endif %}>Auto</option>
+                <option value="nmcli" {% if method == 'nmcli' %}selected{% endif %}>nmcli</option>
+                <option value="iw" {% if method == 'iw' %}selected{% endif %}>iw</option>
+                <option value="iwlist" {% if method == 'iwlist' %}selected{% endif %}>iwlist</option>
+            </select>
+            <input type="text" name="limit" placeholder="Limite de resultats (optionnel)">
+            <div class="wifi-options">
+                <label>
+                    <input type="checkbox" name="open_only" {% if open_only %}checked{% endif %}>
+                    Reseaux ouverts uniquement
+                </label>
+            </div>
+        </form>
+        <div class="wifi-actions">
+            <button type="submit" form="wifi-form">Scanner</button>
+        </div>
+        <div class="shell-output" id="shell-output">
+            {{ output|safe }}
+        </div>
+    </div>
+
+    <script>
+    function toggleNavbar() {
+        var navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+    }
+
+    document.getElementById('wifi-form').onsubmit = function(e) {
+        e.preventDefault();
+        var shell = document.getElementById('shell-output');
+        shell.innerHTML = "Scan Wi-Fi en cours...<br>";
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 3 || xhr.readyState == 4) {
+                shell.innerHTML = xhr.responseText;
+                shell.scrollTop = shell.scrollHeight;
+            }
+        };
+        var data = new FormData(this);
+        var params = new URLSearchParams(data).toString();
+        xhr.send(params);
+    };
+    </script>
+</body>
+</html>

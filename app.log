@@ -2253,47 +2253,68 @@
 2026-01-17 18:12:30,348 - DEBUG - Nombre de mots de passe: 0, Nombre d'utilisateurs: 0
 2026-01-17 18:12:30,349 - INFO - 192.168.1.25 - - [17/Jan/2026 18:12:30] "GET / HTTP/1.1" 200 -
 2026-01-17 18:12:30,370 - INFO - 192.168.1.25 - - [17/Jan/2026 18:12:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2026-01-17 20:01:41,068 - INFO - Initialisation de la base de données...
-2026-01-17 20:01:41,117 - INFO - Base de données initialisée avec succès
-2026-01-17 20:01:41,170 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2026-01-17 18:27:18,434 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5001
  * Running on http://192.168.1.25:5001
-2026-01-17 20:01:41,171 - INFO - [33mPress CTRL+C to quit[0m
-2026-01-17 20:01:41,172 - INFO -  * Restarting with stat
-2026-01-17 20:01:41,393 - WARNING -  * Debugger is active!
-2026-01-17 20:01:41,395 - INFO -  * Debugger PIN: 136-102-730
-2026-01-17 20:01:46,615 - INFO - 192.168.1.25 - - [17/Jan/2026 20:01:46] "GET /sherlock HTTP/1.1" 200 -
-2026-01-17 20:01:46,671 - INFO - 192.168.1.25 - - [17/Jan/2026 20:01:46] "GET /static/style.css HTTP/1.1" 200 -
-2026-01-17 20:01:56,652 - INFO - 192.168.1.25 - - [17/Jan/2026 20:01:56] "POST /sherlock HTTP/1.1" 200 -
-2026-01-17 20:02:33,824 - INFO -  * Detected change in 'C:\\Users\\samuel\\Desktop\\git\\FlaskHack\\scripts\\sherlock_scan.py', reloading
-2026-01-17 20:02:33,849 - INFO -  * Restarting with stat
-2026-01-17 20:02:34,073 - WARNING -  * Debugger is active!
-2026-01-17 20:02:34,075 - INFO -  * Debugger PIN: 136-102-730
-2026-01-17 20:02:35,101 - INFO -  * Detected change in 'C:\\Users\\samuel\\Desktop\\git\\FlaskHack\\scripts\\sherlock_scan.py', reloading
-2026-01-17 20:02:35,123 - INFO -  * Restarting with stat
-2026-01-17 20:02:35,349 - WARNING -  * Debugger is active!
-2026-01-17 20:02:35,351 - INFO -  * Debugger PIN: 136-102-730
-2026-01-17 20:03:11,642 - INFO -  * Detected change in 'C:\\Users\\samuel\\Desktop\\git\\FlaskHack\\scripts\\sherlock_scan.py', reloading
-2026-01-17 20:03:11,665 - INFO -  * Restarting with stat
-2026-01-17 20:03:11,892 - WARNING -  * Debugger is active!
-2026-01-17 20:03:11,894 - INFO -  * Debugger PIN: 136-102-730
-2026-01-17 20:03:16,879 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5001
- * Running on http://192.168.1.25:5001
-2026-01-17 20:03:16,879 - INFO - [33mPress CTRL+C to quit[0m
-2026-01-17 20:03:16,880 - INFO -  * Restarting with stat
-2026-01-17 20:03:17,108 - WARNING -  * Debugger is active!
-2026-01-17 20:03:17,109 - INFO -  * Debugger PIN: 136-102-730
-2026-01-17 20:03:21,913 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:21] "GET /sherlock HTTP/1.1" 200 -
-2026-01-17 20:03:21,940 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2026-01-17 20:03:22,563 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "GET /sherlock HTTP/1.1" 200 -
-2026-01-17 20:03:22,578 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2026-01-17 20:03:22,716 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "GET /sherlock HTTP/1.1" 200 -
-2026-01-17 20:03:22,728 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2026-01-17 20:03:22,866 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "GET /sherlock HTTP/1.1" 200 -
-2026-01-17 20:03:22,878 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2026-01-17 20:03:22,993 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "GET /sherlock HTTP/1.1" 200 -
-2026-01-17 20:03:23,004 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2026-01-17 20:03:28,954 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:28] "POST /sherlock HTTP/1.1" 200 -
+2026-01-17 18:27:18,434 - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 18:27:18,435 - INFO -  * Restarting with stat
+2026-01-17 18:27:18,661 - WARNING -  * Debugger is active!
+2026-01-17 18:27:18,663 - INFO -  * Debugger PIN: 529-264-459
+2026-01-17 18:27:33,031 - INFO - Tentative de connexion à la base de données: C:\Users\samuel\Desktop\flaskhack\data.db
+2026-01-17 18:27:33,032 - DEBUG - Réseaux trouvés: 1
+2026-01-17 18:27:33,032 - DEBUG - Clients trouvés: 8
+2026-01-17 18:27:33,033 - DEBUG - Ports trouvés: 8
+2026-01-17 18:27:33,033 - DEBUG - Résultats Sherlock trouvés: 0
+2026-01-17 18:27:33,033 - DEBUG - Nombre d'outils: 3
+2026-01-17 18:27:33,033 - DEBUG - Nombre de mots de passe: 0, Nombre d'utilisateurs: 0
+2026-01-17 18:27:33,039 - INFO - 192.168.1.25 - - [17/Jan/2026 18:27:33] "GET / HTTP/1.1" 200 -
+2026-01-17 18:27:33,104 - INFO - 192.168.1.25 - - [17/Jan/2026 18:27:33] "GET /static/style.css HTTP/1.1" 200 -
+2026-01-17 18:27:33,218 - INFO - 192.168.1.25 - - [17/Jan/2026 18:27:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-17 18:27:36,554 - INFO - 192.168.1.25 - - [17/Jan/2026 18:27:36] "GET /outilshacking HTTP/1.1" 200 -
+2026-01-17 18:27:36,585 - INFO - 192.168.1.25 - - [17/Jan/2026 18:27:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 18:28:46,389 - INFO - Tentative de connexion à la base de données: C:\Users\samuel\Desktop\flaskhack\data.db
+2026-01-17 18:28:46,390 - DEBUG - Réseaux trouvés: 1
+2026-01-17 18:28:46,391 - DEBUG - Clients trouvés: 8
+2026-01-17 18:28:46,391 - DEBUG - Ports trouvés: 8
+2026-01-17 18:28:46,391 - DEBUG - Résultats Sherlock trouvés: 0
+2026-01-17 18:28:46,391 - DEBUG - Nombre d'outils: 3
+2026-01-17 18:28:46,392 - DEBUG - Nombre de mots de passe: 0, Nombre d'utilisateurs: 0
+2026-01-17 18:28:46,392 - INFO - 192.168.1.25 - - [17/Jan/2026 18:28:46] "GET / HTTP/1.1" 200 -
+2026-01-17 18:28:46,409 - INFO - 192.168.1.25 - - [17/Jan/2026 18:28:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 18:28:57,822 - INFO - 192.168.1.25 - - [17/Jan/2026 18:28:57] "GET /outilshacking HTTP/1.1" 200 -
+2026-01-17 18:28:57,838 - INFO - 192.168.1.25 - - [17/Jan/2026 18:28:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 18:34:06,592 - INFO - 192.168.1.25 - - [17/Jan/2026 18:34:06] "GET /outilshacking HTTP/1.1" 200 -
+2026-01-17 18:34:06,604 - INFO - 192.168.1.25 - - [17/Jan/2026 18:34:06] "GET /static/style.css HTTP/1.1" 200 -
+2026-01-17 19:39:18,320 - INFO - 192.168.1.25 - - [17/Jan/2026 19:39:18] "GET /outilshacking HTTP/1.1" 200 -
+2026-01-17 19:39:18,331 - INFO - 192.168.1.25 - - [17/Jan/2026 19:39:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 19:39:18,982 - INFO - 192.168.1.25 - - [17/Jan/2026 19:39:18] "GET /outilshacking HTTP/1.1" 200 -
+2026-01-17 19:39:19,017 - INFO - 192.168.1.25 - - [17/Jan/2026 19:39:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 19:39:25,440 - INFO - 192.168.1.25 - - [17/Jan/2026 19:39:25] "GET /outilshacking HTTP/1.1" 200 -
+2026-01-17 19:39:25,452 - INFO - 192.168.1.25 - - [17/Jan/2026 19:39:25] "GET /static/style.css HTTP/1.1" 200 -
+2026-01-17 19:46:50,101 - INFO - Tentative de connexion à la base de données: C:\Users\samuel\Desktop\flaskhack\data.db
+2026-01-17 19:46:50,103 - DEBUG - Réseaux trouvés: 1
+2026-01-17 19:46:50,103 - DEBUG - Clients trouvés: 8
+2026-01-17 19:46:50,103 - DEBUG - Ports trouvés: 8
+2026-01-17 19:46:50,103 - DEBUG - Résultats Sherlock trouvés: 0
+2026-01-17 19:46:50,104 - DEBUG - Nombre d'outils: 3
+2026-01-17 19:46:50,104 - DEBUG - Nombre de mots de passe: 0, Nombre d'utilisateurs: 0
+2026-01-17 19:46:50,104 - INFO - 192.168.1.25 - - [17/Jan/2026 19:46:50] "GET / HTTP/1.1" 200 -
+2026-01-17 19:46:50,121 - INFO - 192.168.1.25 - - [17/Jan/2026 19:46:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 19:47:07,687 - INFO - 192.168.1.25 - - [17/Jan/2026 19:47:07] "GET /outilshacking HTTP/1.1" 200 -
+2026-01-17 19:47:07,703 - INFO - 192.168.1.25 - - [17/Jan/2026 19:47:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 19:54:33,412 - INFO - Tentative de connexion à la base de données: C:\Users\samuel\Desktop\flaskhack\data.db
+2026-01-17 19:54:33,416 - DEBUG - Réseaux trouvés: 1
+2026-01-17 19:54:33,416 - DEBUG - Clients trouvés: 8
+2026-01-17 19:54:33,417 - DEBUG - Ports trouvés: 8
+2026-01-17 19:54:33,417 - DEBUG - Résultats Sherlock trouvés: 0
+2026-01-17 19:54:33,417 - DEBUG - Nombre d'outils: 3
+2026-01-17 19:54:33,418 - DEBUG - Nombre de mots de passe: 0, Nombre d'utilisateurs: 0
+2026-01-17 19:54:33,418 - INFO - 192.168.1.25 - - [17/Jan/2026 19:54:33] "GET / HTTP/1.1" 200 -
+2026-01-17 19:54:33,451 - INFO - 192.168.1.25 - - [17/Jan/2026 19:54:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 19:55:13,012 - INFO - 192.168.1.25 - - [17/Jan/2026 19:55:13] "GET /outilshacking HTTP/1.1" 200 -
+2026-01-17 19:55:13,028 - INFO - 192.168.1.25 - - [17/Jan/2026 19:55:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 19:55:14,524 - INFO - 192.168.1.25 - - [17/Jan/2026 19:55:14] "[32mGET /run/sherlock_scan.py HTTP/1.1[0m" 302 -
+2026-01-17 19:55:14,563 - INFO - 192.168.1.25 - - [17/Jan/2026 19:55:14] "GET /sherlock HTTP/1.1" 200 -
+2026-01-17 19:55:14,579 - INFO - 192.168.1.25 - - [17/Jan/2026 19:55:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 19:55:22,172 - INFO - 192.168.1.25 - - [17/Jan/2026 19:55:22] "POST /sherlock HTTP/1.1" 200 -

@@ -26,7 +26,7 @@ body {
     background:
         radial-gradient(1200px 800px at 5% -10%, rgba(14, 165, 164, 0.18), transparent 60%),
         radial-gradient(1000px 700px at 90% 0%, rgba(249, 115, 22, 0.18), transparent 55%),
-        linear-gradient(180deg, #f8fafc 0%, #fef6ec 40%, #eef7f5 100%);
+        linear-gradient(180deg, #f8fafc 0%, #ecf2fe 40%, #eef7f5 100%);
     color: var(--ink);
     font-family: var(--font-sans);
     margin: 0;
