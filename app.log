@@ -2253,3 +2253,47 @@
 2026-01-17 18:12:30,348 - DEBUG - Nombre de mots de passe: 0, Nombre d'utilisateurs: 0
 2026-01-17 18:12:30,349 - INFO - 192.168.1.25 - - [17/Jan/2026 18:12:30] "GET / HTTP/1.1" 200 -
 2026-01-17 18:12:30,370 - INFO - 192.168.1.25 - - [17/Jan/2026 18:12:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 20:01:41,068 - INFO - Initialisation de la base de données...
+2026-01-17 20:01:41,117 - INFO - Base de données initialisée avec succès
+2026-01-17 20:01:41,170 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.25:5001
+2026-01-17 20:01:41,171 - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 20:01:41,172 - INFO -  * Restarting with stat
+2026-01-17 20:01:41,393 - WARNING -  * Debugger is active!
+2026-01-17 20:01:41,395 - INFO -  * Debugger PIN: 136-102-730
+2026-01-17 20:01:46,615 - INFO - 192.168.1.25 - - [17/Jan/2026 20:01:46] "GET /sherlock HTTP/1.1" 200 -
+2026-01-17 20:01:46,671 - INFO - 192.168.1.25 - - [17/Jan/2026 20:01:46] "GET /static/style.css HTTP/1.1" 200 -
+2026-01-17 20:01:56,652 - INFO - 192.168.1.25 - - [17/Jan/2026 20:01:56] "POST /sherlock HTTP/1.1" 200 -
+2026-01-17 20:02:33,824 - INFO -  * Detected change in 'C:\\Users\\samuel\\Desktop\\git\\FlaskHack\\scripts\\sherlock_scan.py', reloading
+2026-01-17 20:02:33,849 - INFO -  * Restarting with stat
+2026-01-17 20:02:34,073 - WARNING -  * Debugger is active!
+2026-01-17 20:02:34,075 - INFO -  * Debugger PIN: 136-102-730
+2026-01-17 20:02:35,101 - INFO -  * Detected change in 'C:\\Users\\samuel\\Desktop\\git\\FlaskHack\\scripts\\sherlock_scan.py', reloading
+2026-01-17 20:02:35,123 - INFO -  * Restarting with stat
+2026-01-17 20:02:35,349 - WARNING -  * Debugger is active!
+2026-01-17 20:02:35,351 - INFO -  * Debugger PIN: 136-102-730
+2026-01-17 20:03:11,642 - INFO -  * Detected change in 'C:\\Users\\samuel\\Desktop\\git\\FlaskHack\\scripts\\sherlock_scan.py', reloading
+2026-01-17 20:03:11,665 - INFO -  * Restarting with stat
+2026-01-17 20:03:11,892 - WARNING -  * Debugger is active!
+2026-01-17 20:03:11,894 - INFO -  * Debugger PIN: 136-102-730
+2026-01-17 20:03:16,879 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.25:5001
+2026-01-17 20:03:16,879 - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 20:03:16,880 - INFO -  * Restarting with stat
+2026-01-17 20:03:17,108 - WARNING -  * Debugger is active!
+2026-01-17 20:03:17,109 - INFO -  * Debugger PIN: 136-102-730
+2026-01-17 20:03:21,913 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:21] "GET /sherlock HTTP/1.1" 200 -
+2026-01-17 20:03:21,940 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 20:03:22,563 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "GET /sherlock HTTP/1.1" 200 -
+2026-01-17 20:03:22,578 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 20:03:22,716 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "GET /sherlock HTTP/1.1" 200 -
+2026-01-17 20:03:22,728 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 20:03:22,866 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "GET /sherlock HTTP/1.1" 200 -
+2026-01-17 20:03:22,878 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 20:03:22,993 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:22] "GET /sherlock HTTP/1.1" 200 -
+2026-01-17 20:03:23,004 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-01-17 20:03:28,954 - INFO - 192.168.1.25 - - [17/Jan/2026 20:03:28] "POST /sherlock HTTP/1.1" 200 -
