@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard - Cyber Master</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .bento-dashboard {
+            display: grid;
+            grid-template-columns: 1.2fr 2.2fr 1.2fr;
+            grid-template-rows: auto auto auto;
+            gap: 2em;
+            width: 96vw;
+            max-width: 1400px;
+            margin: 2.5em auto 0 auto;
+            padding: 0 1em;
+            animation: fadeUp 0.6s ease both;
+        }
+        .bento-vertical,
+        .bento-horizontal {
+            background: var(--surface);
+            border-radius: 1.2em;
+            padding: 1.5em 1.2em;
+            min-height: 420px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            font-size: 1.05em;
+        }
+        .bento-horizontal {
+            min-height: 120px;
+            padding: 1.5em 2em;
+            grid-column: 2;
+            grid-row: 1;
+        }
+        .bento-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        .bento-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+            padding: 0.35em 0;
+            font-size: 0.98em;
+            gap: 0.8em;
+        }
+        .bento-list li:last-child {
+            border-bottom: none;
+        }
+        .bento-title {
+            font-weight: 700;
+            margin-bottom: 0.7em;
+            font-size: 1.15em;
+        }
+        .bento-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.2em 0.7em;
+            border-radius: 999px;
+            background: rgba(14, 165, 164, 0.1);
+            color: #0f766e;
+            font-size: 0.85em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .bento-stats-row {
+            display: flex;
+            gap: 2em;
+            margin-top: 0.5em;
+            justify-content: center;
+        }
+        .bento-square {
+            background: linear-gradient(135deg, rgba(14, 165, 164, 0.16), rgba(249, 115, 22, 0.16));
+            border-radius: 1.2em;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            min-width: 180px;
+            min-height: 120px;
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.1em;
+            font-weight: 700;
+        }
+        .bento-square-label {
+            font-size: 0.7em;
+            font-weight: 500;
+            color: var(--muted);
+            margin-top: 0.3em;
+        }
+        .sherlock-result {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2em;
+        }
+        .sherlock-username {
+            font-weight: 600;
+            color: var(--ink);
+        }
+        .sherlock-url {
+            color: var(--muted);
+            font-size: 0.88em;
+            word-break: break-all;
+        }
+        .sherlock-date {
+            color: rgba(92, 100, 115, 0.8);
+            font-size: 0.8em;
+        }
+        @media (max-width: 1100px) {
+            .bento-dashboard {
+                grid-template-columns: 1fr 2fr 1fr;
+                gap: 1.5em;
+            }
+            .bento-horizontal,
+            .bento-vertical {
+                padding: 1.2em 1em;
+            }
+        }
+        @media (max-width: 900px) {
+            .bento-dashboard {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto auto auto;
+                gap: 1.2em;
+            }
+            .bento-horizontal,
+            .bento-vertical {
+                grid-column: 1 !important;
+                min-height: auto;
+                padding: 1em;
+            }
+            .bento-horizontal[style*="grid-row:3"] {
+                grid-row: 4 !important;
+            }
+            .bento-stats-row {
+                grid-row: 3 !important;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 1em;
+                margin-top: 0;
+                width: 100%;
+            }
+            .bento-square {
+                min-width: 120px;
+                min-height: 90px;
+                max-width: 180px;
+                width: 45vw;
+            }
+            .bento-list {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8em;
+            }
+            .bento-list li {
+                width: 100%;
+                padding: 0.5em 0;
+            }
+            .sherlock-result {
+                flex-direction: column !important;
+                gap: 0.3em;
+            }
+            .header-menu {
+                padding: 0.8em;
+            }
+            .navbar {
+                flex-direction: column;
+                gap: 0.5em;
+            }
+        }
+        @media (max-width: 480px) {
+            .bento-dashboard {
+                gap: 1em;
+                margin-top: 1.5em;
+            }
+            .bento-title {
+                font-size: 1.05em;
+            }
+            .bento-square {
+                font-size: 1.7em;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            .bento-square-label {
+                font-size: 0.6em;
+            }
+            .sherlock-username {
+                font-size: 0.9em;
+            }
+            .sherlock-url {
+                font-size: 0.8em;
+            }
+            .sherlock-date {
+                font-size: 0.7em;
+            }
+            .bento-stats-row {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                width: 100% !important;
+                gap: 0.7em;
+            }
+            .bento-horizontal,
+            .bento-vertical {
+                min-width: 100% !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-menu">
+        <button class="card menu-toggle" onclick="toggleNavbar()">Menu</button>
+        <div class="navbar">
+            <button onclick="window.location.href='/'">Dashboard</button>
+            <button onclick="window.location.href='/outilshacking'">Outils hacking</button>
+            <button onclick="window.location.href='/discover'">Informations réseaux</button>
+            <button>Upgrade</button>
+            <button onclick="window.location.href='https://samuelvanderhoeven.fr'">En savoir plus</button>
+        </div>
+    </div>
+    <div class="bento-dashboard">
+        <!-- Ports à gauche -->
+        <div class="bento-vertical" style="grid-column:1; grid-row:1/3;">
+            <div class="bento-title">Derniers ports découverts</div>
+            <ul class="bento-list">
+                {% for p in ports %}
+                <li>
+                    <span>{{ p['ip'] }}</span>
+                    <span class="bento-chip">port {{ p['port'] }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- Clients à droite -->
+        <div class="bento-vertical" style="grid-column:3; grid-row:1/3;">
+            <div class="bento-title">Derniers clients découverts</div>
+            <ul class="bento-list">
+                {% for c in clients %}
+                <li>
+                    <span>{{ c['ip'] }}</span>
+                    <span class="bento-chip">{{ c['ssid']|default('inconnu') }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- Réseaux au centre -->
+        <div class="bento-horizontal" style="grid-column:2; grid-row:1;">
+            <div class="bento-title">Derniers réseaux découverts</div>
+            <ul class="bento-list" style="flex-direction: row; flex-wrap: wrap; gap: 0.8em;">
+                {% for r in reseaux %}
+                <li style="min-width:120px; justify-content: flex-start;">
+                    <span class="bento-chip">{{ r['ssid']|default('inconnu') }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- Stats outils/password -->
+        <div class="bento-stats-row" style="grid-column:2; grid-row:2;">
+            <div class="bento-square">
+                {{ nb_outils }}
+                <div class="bento-square-label">Outils utilisables</div>
+            </div>
+            <div class="bento-square">
+                {{ nb_passwords + nb_users }}
+                <div class="bento-square-label">mots de passe/utilisateurs</div>
+            </div>
+        </div>
+        <!-- Derniers résultats Sherlock -->
+        <div class="bento-horizontal" style="grid-column:1/4; grid-row:3;">
+            <div class="bento-title">Derniers résultats Sherlock</div>
+            <ul class="bento-list" style="flex-direction: row; flex-wrap: wrap; gap: 1.2em;">
+                {% for result in sherlock_results %}
+                <li style="min-width:160px;">
+                    <div class="sherlock-result" style="flex-direction: row; align-items: center; gap: 0.5em;">
+                        <span class="sherlock-username">{{ result['username'] }}</span>
+                        <span class="sherlock-url">{{ result['valeur'] }}</span>
+                        <span class="sherlock-date">{{ result['date'] }}</span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script>
+    function toggleNavbar() {
+        var navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sherlock - Recherche de profils</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .sherlock-container {
+            background: var(--surface);
+            border-radius: 1.2em;
+            padding: 2em;
+            margin: 2em auto;
+            max-width: 820px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+            animation: fadeUp 0.6s ease both;
+        }
+        .sherlock-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6em;
+            margin-bottom: 1em;
+        }
+        .sherlock-form input[type=text] {
+            flex: 1 1 240px;
+            padding: 0.7em 0.9em;
+            font-size: 1em;
+            border-radius: 0.6em;
+            border: 1px solid rgba(15, 23, 42, 0.1);
+            background: rgba(255, 255, 255, 0.85);
+        }
+        .sherlock-form input[type=submit] {
+            padding: 0.7em 1.1em;
+            font-size: 0.95em;
+            border: none;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 0.6em;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .sherlock-form input[type=submit]:hover {
+            background: var(--accent-strong);
+            transform: translateY(-1px);
+        }
+        @media (max-width: 720px) {
+            .sherlock-container {
+                margin: 1.5em 1em;
+                padding: 1.5em;
+            }
+            .sherlock-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-menu">
+        <button class="card menu-toggle" onclick="toggleNavbar()">Menu</button>
+        <div class="navbar">
+            <button onclick="window.location.href='/'">Dashboard</button>
+            <button onclick="window.location.href='/outilshacking'">Outils hacking</button>
+            <button onclick="window.location.href='/discover'">Informations réseaux</button>
+            <button>Upgrade</button>
+            <button onclick="window.location.href='https://samuelvanderhoeven.fr'">En savoir plus</button>
+
+        </div>
+    </div>
+    <div class="sherlock-container">
+        <form class="sherlock-form" method="post" id="sherlock-form">
+            <input type="text" name="username" placeholder="Nom d'utilisateur à rechercher" required>
+            <input type="submit" value="Rechercher">
+        </form>
+        <div class="shell-output" id="shell-output">
+            {{ output|safe }}
+        </div>
+    </div>
+    <script>
+    function toggleNavbar() {
+        var navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+    }
+
+    document.getElementById('sherlock-form').onsubmit = function(e) {
+        e.preventDefault();
+        var shell = document.getElementById('shell-output');
+        shell.innerHTML = "Recherche en cours...<br>";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 3 || xhr.readyState == 4) {
+                shell.innerHTML = xhr.responseText;
+                shell.scrollTop = shell.scrollHeight;
+            }
+        };
+
+        var data = new FormData(this);
+        var params = new URLSearchParams(data).toString();
+        xhr.send(params);
+    };
+    </script>
+</body>
+</html>

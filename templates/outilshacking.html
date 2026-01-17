@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Outils Hacking - Cyber Master</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .page-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5em;
+        }
+        .page-title {
+            font-size: 2em;
+            font-weight: 700;
+            margin: 0.2em 0 0.2em 0;
+        }
+        .page-subtitle {
+            color: var(--muted);
+            margin-bottom: 1.2em;
+        }
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.6em;
+            padding: 0 1.5em 2em 1.5em;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .tool-card {
+            background: var(--surface);
+            border-radius: 1.2em;
+            padding: 1.4em;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 0.9em;
+            animation: fadeUp 0.6s ease both;
+            animation-delay: calc(var(--delay, 0) * 70ms);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-strong);
+        }
+        .tool-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--ink);
+        }
+        .tool-description {
+            color: var(--muted);
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        .tool-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.6em;
+            color: var(--muted);
+            font-size: 0.8em;
+        }
+        .tool-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.2em 0.6em;
+            border-radius: 999px;
+            background: rgba(14, 165, 164, 0.12);
+            color: #0f766e;
+            font-weight: 600;
+        }
+        .tool-button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.7em 1.1em;
+            border-radius: 0.7em;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .tool-button:hover {
+            background: var(--accent-strong);
+            transform: translateY(-1px);
+        }
+        @media (max-width: 768px) {
+            .tools-container {
+                grid-template-columns: 1fr;
+                padding: 0 1em 2em 1em;
+            }
+            .page-title {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-menu">
+        <button class="card menu-toggle" onclick="toggleNavbar()">Menu</button>
+        <div class="navbar">
+            <button onclick="window.location.href='/'">Dashboard</button>
+            <button onclick="window.location.href='/outilshacking'">Outils hacking</button>
+            <button onclick="window.location.href='/discover'">Informations réseaux</button>
+            <button>Upgrade</button>
+            <button onclick="window.location.href='https://samuelvanderhoeven.fr'">En savoir plus</button>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <h1 class="page-title">Outils de hacking</h1>
+        <div class="page-subtitle">Lance tes scripts et suis la sortie en temps réel.</div>
+    </div>
+
+    <div class="tools-container">
+        {% for script in scripts %}
+        <div class="tool-card" style="--delay: {{ loop.index0 }};">
+            <div class="tool-title">{{ script.name }}</div>
+            <div class="tool-description">{{ script.description }}</div>
+            <div class="tool-meta">
+                <span class="tool-badge">{{ script.type }}</span>
+                <span>Dernière mise à jour: {{ script.last_modified }}</span>
+            </div>
+            <button class="tool-button" onclick="window.location.href='/run/{{ script.filename }}'">Exécuter</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+    function toggleNavbar() {
+        var navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+    }
+    </script>
+</body>
+</html>

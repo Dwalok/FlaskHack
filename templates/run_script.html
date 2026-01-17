@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ script.name }} - Outil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .run-container {
+            background: var(--surface);
+            border-radius: 1.2em;
+            padding: 2em;
+            margin: 2em auto;
+            max-width: 900px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+            animation: fadeUp 0.6s ease both;
+        }
+        .run-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1em;
+            flex-wrap: wrap;
+        }
+        .run-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin: 0 0 0.4em 0;
+        }
+        .run-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8em;
+            color: var(--muted);
+            font-size: 0.85em;
+        }
+        .run-description {
+            margin: 0.6em 0 1em 0;
+            color: var(--muted);
+        }
+        .run-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.2em 0.6em;
+            border-radius: 999px;
+            background: rgba(14, 165, 164, 0.12);
+            color: #0f766e;
+            font-weight: 600;
+        }
+        .run-button {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 0.7em 1.3em;
+            border-radius: 0.7em;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .run-button:hover {
+            background: var(--accent-strong);
+            transform: translateY(-1px);
+        }
+        .run-button:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
+        @media (max-width: 720px) {
+            .run-container {
+                margin: 1.5em 1em;
+                padding: 1.5em;
+            }
+            .run-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .run-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-menu">
+        <button class="card menu-toggle" onclick="toggleNavbar()">Menu</button>
+        <div class="navbar">
+            <button onclick="window.location.href='/'">Dashboard</button>
+            <button onclick="window.location.href='/outilshacking'">Outils hacking</button>
+            <button onclick="window.location.href='/discover'">Informations réseaux</button>
+            <button>Upgrade</button>
+            <button onclick="window.location.href='https://samuelvanderhoeven.fr'">En savoir plus</button>
+        </div>
+    </div>
+
+    <div class="run-container">
+        <div class="run-header">
+            <div>
+                <h1 class="run-title">{{ script.name }}</h1>
+                <div class="run-meta">
+                    <span class="run-badge">{{ script.type }}</span>
+                    <span>Dernière mise à jour: {{ script.last_modified }}</span>
+                </div>
+                <p class="run-description">{{ script.description }}</p>
+            </div>
+            <button class="run-button" id="run-button" type="button">Exécuter</button>
+        </div>
+        <div class="shell-output" id="shell-output"></div>
+    </div>
+
+    <script>
+    function toggleNavbar() {
+        var navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+    }
+
+    document.getElementById('run-button').addEventListener('click', function() {
+        var shell = document.getElementById('shell-output');
+        var button = document.getElementById('run-button');
+        shell.innerHTML = "Exécution en cours...<br>";
+        button.disabled = true;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 3 || xhr.readyState == 4) {
+                shell.innerHTML = xhr.responseText;
+                shell.scrollTop = shell.scrollHeight;
+                if (xhr.readyState == 4) {
+                    button.disabled = false;
+                }
+            }
+        };
+        xhr.send();
+    });
+    </script>
+</body>
+</html>
